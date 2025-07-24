@@ -6,6 +6,7 @@ export default function Aside() {
       alt=""
       src={asideImage}
       className="absolute inset-0 h-full w-full object-cover"
+      loading='lazy'
     />
   </aside>
   )
