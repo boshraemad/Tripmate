@@ -10,6 +10,7 @@ export default {
         turquoise: "#4ECDC4",
         darkturquoise:"#006E7F",
         darkslate: "#0B192C", 
+        clearwhite:"#FDFAF6"
       },
     },
   },
