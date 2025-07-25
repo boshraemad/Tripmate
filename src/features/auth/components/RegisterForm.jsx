@@ -1,4 +1,5 @@
 import Input from "../../../components/Input";
+import CountriesSelect from "./countriesSelect";
 import Terms from "./Terms";
 import Footer from "./Footer";
 
@@ -14,6 +15,7 @@ export default function RegisterForm() {
    <Input type="text" label="username"/>
    <Input type="email" label="useremail"/>
    <Input type="password" label="password"/>
+   <CountriesSelect/>
     <Terms/>
     <Footer register={true}/>
   </form>
