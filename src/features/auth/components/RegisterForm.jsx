@@ -1,5 +1,6 @@
 import Input from "../../../components/Input";
 import CountriesSelect from "./countriesSelect";
+import PhoneNumberInput from "./PhoneInput";
 import Terms from "./Terms";
 import Footer from "./Footer";
 
@@ -12,9 +13,10 @@ export default function RegisterForm() {
       e.preventDefault();
     }}
   >
-   <Input type="text" label="username"/>
-   <Input type="email" label="useremail"/>
-   <Input type="password" label="password"/>
+    <Input type="email" label="useremail" width="col-span-6"/>
+   <Input type="text" label="username" width="col-span-3"/>
+   <Input type="password" label="password" width="col-span-3"/>
+   <PhoneNumberInput/>
    <CountriesSelect/>
     <Terms/>
     <Footer register={true}/>
