@@ -40,7 +40,7 @@ export default function CountriesSelect() {
 
   return (
     <div className="col-span-3">
-        <label className="block text-sm mb-6 font-bold">Choose your country</label>
+        <label className="block text-sm mb-3 font-bold"><span className="me-1 text-xl text-sunset inline-block">*</span>Choose your country</label>
         <Select  styles={customStyles} menuPlacement="bottom" options={options}/>
     </div>
   )

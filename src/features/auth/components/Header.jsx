@@ -5,7 +5,7 @@ export default function Header() {
         Welcome to <span className="inline-block first-letter:text-sunset">Tripmate</span>
         </h1>
 
-      <p className="mt-4 leading-relaxed text-gray-500">
+      <p className="mt-3 leading-relaxed text-gray-500">
         Your guide for the best trip
       </p>
     </header>
