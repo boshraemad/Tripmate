@@ -12,8 +12,8 @@ export default function LoginForm() {
       e.preventDefault();
     }}
   >
-   <Input type="email" label="useremail"/>
-   <Input type="password" label="password"/>
+   <Input type="email" label="useremail" width="col-span-6"/>
+   <Input type="password" label="password" width="col-span-6"/>
    <Link to="/forgotPassword" className="text-sm col-span-6 font-[500] text-turquoise hover:text-darkturquoise">
       Forgot password?
     </Link>

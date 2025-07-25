@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Input({type , label}) {
+export default function Input({type , label , width}) {
   return (
-     <div className="col-span-6 sm-col-span-3">
+     <div className={`${width} sm-col-span-3`}>
         <label
         htmlFor={type}
         className="block text-sm font-medium text-gray-700"
