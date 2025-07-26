@@ -8,10 +8,10 @@ export default function NavBar() {
     useEffect(()=>{
         initFlowbite();
     },[])
-    
+
   return (
-    <nav className="bg-transparent border-gray-200">
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-transparent border-gray-200 sticky top-[0] bg-white">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
   <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
       <img src={logoImage} className="h-8" alt="Flowbite Logo" />
       <span className="block first-letter:text-sunset self-center text-2xl font-semibold whitespace-nowrap">Tripmate</span>
@@ -50,16 +50,16 @@ export default function NavBar() {
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
       <li>
-        <NavLink to="/" className={({isActive})=> isActive? "activenavlink " : "unactivenavlink"}>Home</NavLink>
+        <NavLink to="/" className={`navlink ${({isActive})=> isActive? "activenavlink " : "unactivenavlink"}`}>Home</NavLink>
       </li>
       <li>
-        <NavLink to="/discover" className={` navlink ${({isActive})=> isActive? "activenavlink " : "unactivenavlink"}`}>Discover</NavLink>
+        <NavLink to="/discover" className={`navlink ${({isActive})=> isActive? "activenavlink " : "unactivenavlink"}`}>Discover</NavLink>
       </li>
       <li>
-        <NavLink to="/trips" className={({isActive})=> isActive? "activenavlink " : "unactivenavlink"}>Trips</NavLink>
+        <NavLink to="/trips" className={`navlink ${({isActive})=> isActive? "activenavlink " : "unactivenavlink"}`}>Trips</NavLink>
       </li>
       <li>
-        <NavLink to="/userReview" className={({isActive})=> isActive? "activenavlink " : "unactivenavlink"}>Review</NavLink>
+        <NavLink to="/userReview" className={` navlink ${({isActive})=> isActive? "activenavlink " : "unactivenavlink"}`}>Review</NavLink>
       </li>
     </ul>
   </div>
