@@ -10,7 +10,7 @@ export default function NavBar() {
     },[])
 
   return (
-    <nav className="bg-transparent border-gray-200 sticky top-[0] bg-white">
+    <nav className="bg-transparent border-gray-200 sticky z-10 top-[0] bg-white">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
   <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
       <img src={logoImage} className="h-8" alt="Flowbite Logo" />
@@ -20,7 +20,7 @@ export default function NavBar() {
       <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <Avatar/>
       </button>
-      <div className="z-50 hidden my-4 text-base list-none bg-white border-2 border-sunset divide-y divide-gray-100 rounded-lg shadow-sm lg:w-[20%] w-[40%]" id="user-dropdown">
+      <div className="z-50 relative hidden my-4 text-base list-none bg-white border-2 border-sunset divide-y divide-gray-100 rounded-lg shadow-sm lg:w-[23%] sm:w-[40%] w-[45%]" id="user-dropdown">
         <div className="px-4 py-3">
           <span className="block text-sm text-gray-900">Bonnie Green</span>
           <span className="block text-sm  text-gray-500 truncate">name@flowbite.com</span>
