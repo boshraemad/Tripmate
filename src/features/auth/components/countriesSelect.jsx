@@ -1,6 +1,7 @@
 import useGetCountry from "../../../Hooks/useGetCountry"
 import Select from "react-select"
-export default function CountriesSelect() {
+import { handleOnChangeState } from "../../../utils/handleOnChangeState";
+export default function CountriesSelect({state, setState}) {
     const countries = useGetCountry();
     const options= countries.map((country)=>{
        return {value:`${country.country}` , label:`${country.country}`}
@@ -41,7 +42,7 @@ export default function CountriesSelect() {
   return (
     <div className="col-span-3">
         <label className="block text-sm mb-3 font-bold"><span className="me-1 text-xl text-sunset inline-block">*</span>Choose your country</label>
-        <Select  styles={customStyles} menuPlacement="bottom" options={options}/>
+        <Select styles={customStyles} menuPlacement="bottom" options={options} onChange={(option)=>handleOnChangeState(option.value , setState)}/>
     </div>
   )
 }
