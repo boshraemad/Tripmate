@@ -1,10 +1,15 @@
 import { NavLink , Link } from "react-router-dom";
 import logoImage from "../../src/assets/images/logo.png"
 import Avatar from "./Avatar";
+import Button from "./Button";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { initFlowbite } from "flowbite";
 
+
 export default function NavBar() {
+  const userId = useSelector((state)=>state.userSlice.userId);
+  console.log(userId)
     useEffect(()=>{
         initFlowbite();
     },[])
@@ -17,6 +22,7 @@ export default function NavBar() {
       <span className="block first-letter:text-sunset self-center text-2xl font-semibold whitespace-nowrap">Tripmate</span>
   </Link>
   <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+    {userId ? <>
       <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <Avatar/>
       </button>
@@ -46,6 +52,8 @@ export default function NavBar() {
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
+    </> : <Button color="bg-turquoise">sign in</Button>
+    }
   </div>
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
