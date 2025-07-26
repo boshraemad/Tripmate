@@ -1,4 +1,4 @@
-import { NavLink , Link } from "react-router-dom";
+import { NavLink , Link , useNavigate } from "react-router-dom";
 import logoImage from "../../src/assets/images/logo.png"
 import Avatar from "./Avatar";
 import Button from "./Button";
@@ -9,7 +9,8 @@ import { initFlowbite } from "flowbite";
 
 export default function NavBar() {
   const userId = useSelector((state)=>state.userSlice.userId);
-  console.log(userId)
+  const navigate = useNavigate();
+
     useEffect(()=>{
         initFlowbite();
     },[])
@@ -52,7 +53,7 @@ export default function NavBar() {
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
-    </> : <Button color="bg-turquoise">sign in</Button>
+    </> : <Button color="bg-turquoise" onClick={()=>navigate("/login")}>sign in</Button>
     }
   </div>
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
