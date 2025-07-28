@@ -7,7 +7,7 @@ export default function WhereTo() {
     <section className="w-full flex items-center justify-center mt-16">
        <div className="text-center">
        <h1 className="font-extrabold text-5xl text-darkslate">Where to?</h1>
-       <WhereToList setSearchtext={setSearchtext}/>
+       <WhereToList searchtext={searchtext} setSearchtext={setSearchtext}/>
        <SearchInput searchtext={searchtext}/>
        </div>
     </section>
