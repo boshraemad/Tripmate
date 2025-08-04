@@ -3,18 +3,29 @@ import Terms from "./Terms";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { login } from "../services/userSlice";
+import ErrorMessage from "../../../components/ErrorMessage";
+
 
 export default function LoginForm() {
   const [userEmail , setUserEmail]=useState("");
   const [password , setPassword]=useState("");
+  const {status , error } = useSelector((state)=>state.user);
+  const dispatch =useDispatch();
 
  const onSubmit=(e)=>{
   e.preventDefault();
-  console.log(userEmail , password)
+  const data = {
+    email:String(userEmail),
+    password:String(password)
+  }
+
+  dispatch(login(data));
  }
   return (
     <form
-    action="#"
     className="mt-8 grid grid-cols-6 gap-6"
     onSubmit={onSubmit}
   >
@@ -24,7 +35,8 @@ export default function LoginForm() {
       Forgot password?
     </Link>
     <Terms/>
-    <Footer register={false}/>
+    {error && <ErrorMessage message={error}/>}
+    <Footer register={false} isLoading={ status === "loading"}/>
   </form>
   )
 }
