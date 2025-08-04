@@ -4,6 +4,9 @@ import CountriesSelect from "./countriesSelect";
 import PhoneNumberInput from "./PhoneInput";
 import Terms from "./Terms";
 import Footer from "./Footer";
+import { useDispatch , useSelector } from "react-redux";
+import ErrorMessage from "../../../components/ErrorMessage";
+import { register } from "../services/userSlice";
 
 export default function RegisterForm() {
   const [userEmail , setUserEmail]=useState("");
@@ -11,10 +14,20 @@ export default function RegisterForm() {
   const [password , setPassword]=useState("");
   const [phone , setPhone]=useState("");
   const [country,setCountry]=useState("");
+  const {status , error } = useSelector((state)=>state.user);
+  const dispatch=useDispatch();
 
   const onSubmit=(e)=>{
     e.preventDefault();
-    console.log(userEmail , userName , password , phone , country)
+    const data={
+      userName:String(userName),
+      email:String(userEmail),
+      phoneNumber:String(phone),
+      password:String(password),
+      country:String(country)
+    }
+
+    dispatch(register(data))
    }
 
   return (
@@ -29,7 +42,8 @@ export default function RegisterForm() {
    <PhoneNumberInput state={phone} setState={setPhone}/>
    <CountriesSelect state={country} setState={setCountry}/>
     <Terms/>
-    <Footer register={true}/>
+    {error && <ErrorMessage message={error}/>}
+    <Footer register={true} isLoading={status === "loading"}/>
   </form>
   )
 }

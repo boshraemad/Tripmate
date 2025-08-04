@@ -22,7 +22,7 @@ export const login = createAsyncThunk("user/login", async function (data , {reje
         return response.data;
     }catch(error){
         return rejectWithValue({
-            errors: error.response?.data?.errors[0]
+            errors: error.response?.data?.errors
         })
     }
 });
@@ -38,19 +38,21 @@ const initialState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducer: {},
+  reducer: {
+
+  },
   extraReducers: (builder) =>
     builder
       .addCase(register.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(register.fulfilled, (state) => {
         state.status = "idle",
-        state.registered = action.payload.success === true;
+        state.registered = true
       })
       .addCase(register.rejected, (state, action) => {
         state.status = "idle", 
-        state.error = action.payload.errors[0];
+        state.error = action.payload.errors;
       })
       .addCase(login.pending, (state) => {
         state.status = "loading";
