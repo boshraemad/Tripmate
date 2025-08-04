@@ -5,11 +5,11 @@ import Button from "./Button";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { initFlowbite } from "flowbite";
-import { isAction } from "@reduxjs/toolkit";
+
 
 
 export default function NavBar() {
-  const userId = useSelector((state)=>state.userSlice.userId);
+  const userId = useSelector((state)=>state.user.userId);
   const navigate = useNavigate();
 
     useEffect(()=>{
