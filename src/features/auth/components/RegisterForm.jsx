@@ -14,7 +14,7 @@ export default function RegisterForm() {
   const [password , setPassword]=useState("");
   const [phone , setPhone]=useState("");
   const [country,setCountry]=useState("");
-  const {status , error } = useSelector((state)=>state.user);
+  const {status } = useSelector((state)=>state.user);
   const dispatch=useDispatch();
 
   const onSubmit=(e)=>{
@@ -42,7 +42,7 @@ export default function RegisterForm() {
    <PhoneNumberInput state={phone} setState={setPhone}/>
    <CountriesSelect state={country} setState={setCountry}/>
     <Terms/>
-    {error && <ErrorMessage message={error}/>}
+    {/* {error && <ErrorMessage message={error}/>} */}
     <Footer register={true} isLoading={status === "loading"}/>
   </form>
   )

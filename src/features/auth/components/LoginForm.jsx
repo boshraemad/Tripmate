@@ -12,7 +12,7 @@ import ErrorMessage from "../../../components/ErrorMessage";
 export default function LoginForm() {
   const [userEmail , setUserEmail]=useState("");
   const [password , setPassword]=useState("");
-  const {status , error } = useSelector((state)=>state.user);
+  const {status } = useSelector((state)=>state.user);
   const dispatch =useDispatch();
 
  const onSubmit=(e)=>{
@@ -35,7 +35,7 @@ export default function LoginForm() {
       Forgot password?
     </Link>
     <Terms/>
-    {error && <ErrorMessage message={error}/>}
+    {/* {error && <ErrorMessage message={error}/>} */}
     <Footer register={false} isLoading={ status === "loading"}/>
   </form>
   )
