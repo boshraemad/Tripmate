@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Discover from "./pages/Discover";
 import HomePageLayout from "./pages/HomePageLayout";
+import ConfirmPage from "./pages/ConfirmPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/confirmEmail/:accessToken" element={<ConfirmPage/>}/>
       </Routes>
     </BrowserRouter>
     </Provider>

@@ -1,5 +1,5 @@
 import axios from "axios";
-// import store from "./src/rtk/store";
+import store from "./src/rtk/store";
 // import { refreshAccessToken } from "./src/features/auth/services/auth.tokens";
 
 const url_base = import.meta.env.VITE_API_URL;
@@ -11,14 +11,14 @@ const url_base = import.meta.env.VITE_API_URL;
          }
 });
 
-// api.interceptors.request.use((config)=>{
-//     const state=store.getState();
-//     const accessToken = state.userSlice.token;
-//     if(accessToken){
-//         config.headers.Authorization=`Bearer ${accessToken}`
-//     }
-//     return config;
-// })
+api.interceptors.request.use((config)=>{
+    const state=store.getState();
+    const accessToken = state.user.token;
+    if(accessToken){
+        config.headers.Authorization=`Bearer ${accessToken}`
+    }
+    return config;
+})
 
 // api.interceptors.response.use((response)=>response,
 // async(error)=>{

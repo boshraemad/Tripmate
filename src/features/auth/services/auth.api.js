@@ -9,3 +9,8 @@ export async function login(data){
         const res = await api.post("Account/login" , data)
         return res;
 }
+
+export async function confirmEmail(){
+        const res = await api.patch("Account/confirm");
+        return res;
+}
