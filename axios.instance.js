@@ -1,5 +1,5 @@
 import axios from "axios";
-import store from "./src/rtk/store";
+import store from "./src/store";
 // import { refreshAccessToken } from "./src/features/auth/services/auth.tokens";
 
 const url_base = import.meta.env.VITE_API_URL;
