@@ -4,22 +4,14 @@ import PhoneNumberInput from "./PhoneInput";
 import Terms from "./Terms";
 import Footer from "./Footer";
 import { useForm } from "react-hook-form";
-
+import useRegister from "../customHooks/useRegister";
 export default function RegisterForm() {
+  const {isRegistering , registerUser} = useRegister();
  const {control , handleSubmit , getValues}=useForm();
 
   const onSubmit=(data)=>{
-    // e.preventDefault();
-    // const data={
-    //   userName:String(userName),
-    //   email:String(userEmail),
-    //   phoneNumber:String(phone),
-    //   password:String(password),
-    //   country:String(country)
-    // }
-
-    console.log(data)
-
+    if(!data) return;
+    registerUser(data);
    }
 
   return (
@@ -59,7 +51,7 @@ export default function RegisterForm() {
     required:"Country is Required"
    }}/>
     <Terms/>
-    <Footer register={true} isLoading={status === "loading"}/>
+    <Footer register={true} isLoading={isRegistering}/>
   </form>
   )
 }

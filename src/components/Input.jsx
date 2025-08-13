@@ -8,7 +8,7 @@ export default function Input({type , label , width , control , expand , rules ,
     {...register(name)}
     rules={rules}
     render={({field , fieldState : {error}})=>(
-      <div className={`${width} ${expand ? `md:${width}` : ""} md:col-span-3`}>
+      <div className={`${width} ${expand ? `md:${width}` : "md:col-span-3"}`}>
       <label
       htmlFor={type}
       className="block text-sm font-medium text-gray-700"

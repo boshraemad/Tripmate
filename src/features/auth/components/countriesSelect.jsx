@@ -40,7 +40,6 @@ export default function CountriesSelect({control , name , rules}) {
           fontWeight: "500",
         }),
       };
-
   return (
     <Controller
       control={control}
@@ -49,7 +48,8 @@ export default function CountriesSelect({control , name , rules}) {
       render={({ field ,fieldState:{error}})=>(
         <div className="col-span-3">
         <label className="block text-sm mb-3 font-bold"><span className="me-1 text-xl text-sunset inline-block">*</span>Choose your country</label>
-        <Select {...field} styles={customStyles} menuPlacement="bottom" options={options}/>
+        <Select {...field} styles={customStyles} menuPlacement="bottom" options={options} onChange={(selected) => field.onChange(selected?.value)}
+          value={options.find(opt => opt.value === field.value)}/>
         {
           error && <ErrorMessage message={error.message}/>
         }

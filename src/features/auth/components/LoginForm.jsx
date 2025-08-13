@@ -2,18 +2,15 @@ import Input from "../../../components/Input";
 import Terms from "./Terms";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
-import ErrorMessage from "../../../components/ErrorMessage";
 import { useForm } from "react-hook-form";
+import useLogin from "../customHooks/useLogin";
 
 export default function LoginForm() {
 const {control , handleSubmit} = useForm();
+const {isLoading , loginUser}=useLogin();
  const onSubmit=(data)=>{
-  // e.preventDefault();
-  // const data = {
-  //   email:String(userEmail),
-  //   password:String(password)
-  // }
-  console.log(data);
+  if(!data) return;
+  loginUser(data);
  }
   return (
     <form
@@ -36,8 +33,7 @@ const {control , handleSubmit} = useForm();
       Forgot password?
     </Link>
     <Terms/>
-    {/* {error && <ErrorMessage message={error}/>} */}
-    <Footer register={false} isLoading={ status === "loading"}/>
+    <Footer register={false} isLoading={isLoading}/>
   </form>
   )
 }
