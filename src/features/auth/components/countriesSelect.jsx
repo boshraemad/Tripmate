@@ -1,7 +1,9 @@
 import useGetCountry from "../../../Hooks/useGetCountry"
 import Select from "react-select"
-import { handleOnChangeState } from "../../../utils/handleOnChangeState";
-export default function CountriesSelect({state, setState}) {
+import { Controller  , useForm } from "react-hook-form";
+import ErrorMessage from "../../../components/ErrorMessage";
+export default function CountriesSelect({control , name , rules}) {
+    const {register}=useForm();
     const countries = useGetCountry();
     const options= countries.map((country)=>{
        return {value:`${country.country}` , label:`${country.country}`}
@@ -40,9 +42,19 @@ export default function CountriesSelect({state, setState}) {
       };
 
   return (
-    <div className="col-span-3">
+    <Controller
+      control={control}
+      {...register(name)}
+      rules={rules}
+      render={({ field ,fieldState:{error}})=>(
+        <div className="col-span-3">
         <label className="block text-sm mb-3 font-bold"><span className="me-1 text-xl text-sunset inline-block">*</span>Choose your country</label>
-        <Select styles={customStyles} menuPlacement="bottom" options={options} onChange={(option)=>handleOnChangeState(option.value , setState)}/>
+        <Select {...field} styles={customStyles} menuPlacement="bottom" options={options}/>
+        {
+          error && <ErrorMessage message={error.message}/>
+        }
     </div>
+      )}
+    />
   )
 }
