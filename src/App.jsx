@@ -1,17 +1,19 @@
 import { BrowserRouter , Routes , Route } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { store } from "./store";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Discover from "./pages/Discover";
 import HomePageLayout from "./pages/HomePageLayout";
 import ConfirmPage from "./pages/ConfirmPage";
+import { QueryClient , QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <ReactQueryDevtools open={false}/>
+        <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>}>
           <Route index element={<HomePageLayout/>}/>
@@ -22,7 +24,7 @@ function App() {
         <Route path="/confirmEmail/:accessToken" element={<ConfirmPage/>}/>
       </Routes>
     </BrowserRouter>
-    </Provider>
+  </QueryClientProvider>
   )
 }
 

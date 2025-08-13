@@ -3,17 +3,12 @@ import Terms from "./Terms";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { login } from "../services/userSlice";
 import ErrorMessage from "../../../components/ErrorMessage";
 
 
 export default function LoginForm() {
   const [userEmail , setUserEmail]=useState("");
   const [password , setPassword]=useState("");
-  const {status } = useSelector((state)=>state.user);
-  const dispatch =useDispatch();
 
  const onSubmit=(e)=>{
   e.preventDefault();
@@ -22,7 +17,6 @@ export default function LoginForm() {
     password:String(password)
   }
 
-  dispatch(login(data));
  }
   return (
     <form

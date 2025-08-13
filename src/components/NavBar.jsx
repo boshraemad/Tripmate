@@ -3,14 +3,14 @@ import logoImage from "../../src/assets/images/logo.png"
 import Avatar from "./Avatar";
 import Button from "./Button";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { initFlowbite } from "flowbite";
 
 
 
 export default function NavBar() {
-  const userId = useSelector((state)=>state.user.userId);
-  const navigate = useNavigate();
+  //get value from react-query => user-query
+const userId=false;
+const navigate = useNavigate();
 
     useEffect(()=>{
         initFlowbite();
