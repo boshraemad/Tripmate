@@ -1,6 +1,6 @@
 import { Controller , useForm} from "react-hook-form"
 import ErrorMessage from "./ErrorMessage"
-export default function Input({type , label , width , control , expand , rules , name}) {
+export default function Input({type , placeholder = "", label , width , control , expand , rules , name , isLoading=false}) {
   const {register} = useForm();
   return (
     <Controller
@@ -22,6 +22,8 @@ export default function Input({type , label , width , control , expand , rules ,
       type={type}
       id={label}
       name={type}
+      placeholder={placeholder}
+      disabled={isLoading}
       className="mt-1 w-full rounded-md border-2 bg-white text-sm text-gray-700 shadow-xs p-1.5 "
     />
     {

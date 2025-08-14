@@ -14,3 +14,8 @@ export async function VerifyEmail(data){
     const res = await api.post("/Account/verifyEmail" , data);
     return res.data;
 }
+
+export async function forgotPassword(data){
+    const res = await api.post("/Account/ForgotPassword" , data);
+    return res.data;
+}

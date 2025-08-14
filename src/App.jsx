@@ -7,7 +7,8 @@ import HomePageLayout from "./pages/HomePageLayout";
 import { QueryClient , QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import VerifyEmail from "./pages/verifyEmail";
-
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 const queryClient = new QueryClient();
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/verify" element={<VerifyEmail/>}/>
+        <Route path="/forgot-password" element={<ForgetPassword/>}/>
+        <Route path="/reset-password" element={<ResetPassword/>}/>
       </Routes>
     </BrowserRouter>
   </QueryClientProvider>
