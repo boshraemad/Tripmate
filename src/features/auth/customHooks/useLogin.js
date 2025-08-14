@@ -12,7 +12,6 @@ export default function useLogin() {
         navigate("/");
     },
     onError:(error)=>{
-        // console.log(error.response.data.errors[0]);
         showErrorToast( error?.response?.data.errors[0] || "Login failed. Please try again." );
     }
   })

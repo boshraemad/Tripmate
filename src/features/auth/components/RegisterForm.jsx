@@ -5,9 +5,10 @@ import Terms from "./Terms";
 import Footer from "./Footer";
 import { useForm } from "react-hook-form";
 import useRegister from "../customHooks/useRegister";
+
 export default function RegisterForm() {
   const {isRegistering , registerUser} = useRegister();
- const {control , handleSubmit , getValues}=useForm();
+  const {control , handleSubmit , getValues}=useForm();
 
   const onSubmit=(data)=>{
     if(!data) return;

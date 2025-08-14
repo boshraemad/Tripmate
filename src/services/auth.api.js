@@ -9,3 +9,8 @@ export async function register(data){
         const res = await api.post("/Account/register" , data);
         return res.data;
 }
+
+export async function VerifyEmail(data){
+    const res = await api.post("/Account/verifyEmail" , data);
+    return res.data;
+}

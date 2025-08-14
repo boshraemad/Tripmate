@@ -4,9 +4,10 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Discover from "./pages/Discover";
 import HomePageLayout from "./pages/HomePageLayout";
-import ConfirmPage from "./pages/ConfirmPage";
 import { QueryClient , QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import VerifyEmail from "./pages/verifyEmail";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         </Route>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/confirmEmail/:accessToken" element={<ConfirmPage/>}/>
+        <Route path="/verify" element={<VerifyEmail/>}/>
       </Routes>
     </BrowserRouter>
   </QueryClientProvider>
