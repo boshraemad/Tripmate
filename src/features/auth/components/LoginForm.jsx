@@ -29,7 +29,7 @@ const {isLoading , loginUser}=useLogin();
    rules={{
     required:"please enter your password",
     }}/>
-   <Link to="/forgotPassword" className="text-sm col-span-6 font-[500] text-turquoise hover:text-darkturquoise">
+   <Link to="/forgot-Password" className="text-sm col-span-6 font-[500] text-turquoise hover:text-darkturquoise">
       Forgot password?
     </Link>
     <Terms/>

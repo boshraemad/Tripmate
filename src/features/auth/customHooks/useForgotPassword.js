@@ -8,7 +8,7 @@ export default function useForgotPassword() {
   const {isLoading , mutate:userForgotPassword} = useMutation({
     mutationFn:(data)=>forgotPassword(data),
     onSuccess:(data)=>{
-        showSuccessToast(data.message || "we sent your password to your email");
+        showSuccessToast(data.message || "check your email");
         navigate("/reset-password")
     },
     onError:(error)=>{
