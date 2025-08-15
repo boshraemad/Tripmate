@@ -9,15 +9,21 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import VerifyEmail from "./pages/verifyEmail";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
+import AuthProvider from "./features/auth/components/AuthContext";
+import { useRefreshToken } from "./features/auth/customHooks/useRefreshToken";
+import ProtectedRoute from "./pages/ProtectedRoute";
+
 const queryClient = new QueryClient();
 
 function App() {
   return (
   <QueryClientProvider client={queryClient}>
+    <AuthProvider>
     <ReactQueryDevtools open={false}/>
         <BrowserRouter>
+        <AppRefresher/>
       <Routes>
-        <Route path="/" element={<HomePage/>}>
+        <Route path="/" element={<ProtectedRoute><HomePage/></ProtectedRoute>}>
           <Route index element={<HomePageLayout/>}/>
           <Route path="discover" element={<Discover/>}/>
         </Route>
@@ -28,8 +34,12 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword/>}/>
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   </QueryClientProvider>
   )
 }
 
+const AppRefresher=()=>{
+  useRefreshToken();
+}
 export default App

@@ -24,3 +24,8 @@ export async function resetPassword(data){
     const res = await api.post("/Account/ResetPassword" , data);
     return res.data;
 }
+
+export async function userRefreshToken(data){
+    const res = await api.post("/Account/refresh-token" , data);
+    return res.data;
+}
