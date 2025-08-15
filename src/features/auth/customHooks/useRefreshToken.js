@@ -22,13 +22,13 @@ export const useRefreshToken = () => {
       }
       return response.data; 
     },
-    refetchInterval: 14 * 60 * 1000,
+    refetchInterval: 59 * 60 * 1000,
     refetchIntervalInBackground: true,
     staleTime: Infinity,
     retry: false,
     enabled: !!refreshToken, 
   });
-  
+
   useEffect(() => {
     if (query.data) {
       const { accessToken: newAccessToken, refreshToken: newRefreshToken } = query.data;
