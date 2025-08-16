@@ -2,6 +2,7 @@ import { NavLink , Link , useNavigate } from "react-router-dom";
 import logoImage from "../../src/assets/images/logo.png"
 import Avatar from "./Avatar";
 import Button from "./Button";
+import { useAuth } from "../features/auth/components/AuthContext";
 import { useEffect } from "react";
 import { initFlowbite } from "flowbite";
 
@@ -9,7 +10,7 @@ import { initFlowbite } from "flowbite";
 
 export default function NavBar() {
   //get value from react-query => user-query
-const userId=false;
+const {accessToken , logout}=useAuth();
 const navigate = useNavigate();
 
     useEffect(()=>{
@@ -24,7 +25,7 @@ const navigate = useNavigate();
       <span className="block first-letter:text-sunset self-center text-2xl font-semibold whitespace-nowrap">Tripmate</span>
   </Link>
   <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-    {userId ? <>
+    {accessToken ? <>
       <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <Avatar/>
       </button>
@@ -44,7 +45,7 @@ const navigate = useNavigate();
             <NavLink to="/bookmarks" className={` togglelink ${({isActive})=> isActive? "activetogglelink " : "unactivetogglelink"}`}>Bookmarks</NavLink>
           </li>
           <li>
-            <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Sign out</button>
+            <button onClick={()=>logout()} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">Sign out</button>
           </li>
         </ul>
       </div>
